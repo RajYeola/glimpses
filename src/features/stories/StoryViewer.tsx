@@ -38,13 +38,11 @@ const progressRowStyle = css`
   top: 8px;
   left: 8px;
   right: 8px;
-  display: flex;
-  gap: 4px;
   z-index: 3;
 `;
 
 const progressTrackStyle = css`
-  flex: 1;
+  width: 100%;
   height: 2.5px;
   background: rgba(255, 255, 255, 0.35);
   border-radius: 2px;
@@ -56,10 +54,6 @@ const progressFillBaseStyle = css`
   width: 0%;
   background: #fff;
   border-radius: 2px;
-`;
-
-const progressFillFullStyle = css`
-  width: 100%;
 `;
 
 const progressFillActiveStyle = (running: boolean) => css`
@@ -181,20 +175,12 @@ export function StoryViewer({ stories, activeIndex, onNext, onPrev, onClose }: S
   return (
     <div css={viewerStyle} data-testid="story-viewer">
       <div css={progressRowStyle}>
-        {stories.map((s, i) => (
-          <div css={progressTrackStyle} key={s.id}>
-            {i < activeIndex ? (
-              <div css={[progressFillBaseStyle, progressFillFullStyle]} />
-            ) : i === activeIndex ? (
-              <div
-                css={[progressFillBaseStyle, progressFillActiveStyle(loaded)]}
-                key={`${activeIndex}-${restartKey}`}
-              />
-            ) : (
-              <div css={progressFillBaseStyle} />
-            )}
-          </div>
-        ))}
+        <div css={progressTrackStyle}>
+          <div
+            css={[progressFillBaseStyle, progressFillActiveStyle(loaded)]}
+            key={`${activeIndex}-${restartKey}`}
+          />
+        </div>
       </div>
 
       <div css={headerStyle}>
