@@ -5,7 +5,9 @@ import { StoriesBar } from './features/stories/StoriesBar';
 import { StoryViewer } from './features/stories/StoryViewer';
 import { Story } from './types/story';
 
-const MOBILE_UA_REGEX = /Android|iPhone|iPad|iPod/i;
+// TEMP: width-based check in place of UA sniff. Revert to original below later.
+// const MOBILE_UA_REGEX = /Android|iPhone|iPad|iPod/i;
+const MOBILE_MAX_WIDTH = 768;
 
 const globalStyle = css`
   html,
@@ -33,13 +35,20 @@ const desktopMessageStyle = css`
   font-size: 16px;
 `;
 
-const detectIsMobile = () => MOBILE_UA_REGEX.test(navigator.userAgent);
+// const detectIsMobile = () => MOBILE_UA_REGEX.test(navigator.userAgent);
+const detectIsMobile = () => window.innerWidth <= MOBILE_MAX_WIDTH;
 
 function App() {
-  const [isMobile] = useState(detectIsMobile);
+  const [isMobile, setIsMobile] = useState(detectIsMobile);
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(detectIsMobile());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (!isMobile) return;
