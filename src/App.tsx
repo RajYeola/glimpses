@@ -1,11 +1,20 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import { StoriesBar } from './features/stories/StoriesBar';
 import { StoryViewer } from './features/stories/StoryViewer';
 import { Story } from './types/story';
 
 const MOBILE_UA_REGEX = /Android|iPhone|iPad|iPod/i;
+
+const globalStyle = css`
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+  }
+`;
 
 const appStyle = css`
   min-height: 100vh;
@@ -84,6 +93,7 @@ function App() {
 
   return (
     <div css={appStyle}>
+      <Global styles={globalStyle} />
       <StoriesBar stories={stories} loading={loading} onSelect={setActiveIndex} />
       {activeIndex !== null && (
         <StoryViewer
