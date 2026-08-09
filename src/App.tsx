@@ -45,9 +45,9 @@ function App() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(detectIsMobile());
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const observer = new ResizeObserver(() => setIsMobile(detectIsMobile()));
+    observer.observe(document.documentElement);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
