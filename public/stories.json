@@ -1,49 +1,49 @@
 [
   {
     "id": "1",
-    "username": "aria",
+    "username": "raj",
     "avatar": "https://picsum.photos/seed/aria-avatar/100/100",
     "image": "https://picsum.photos/seed/aria-story/720/1280"
   },
   {
     "id": "2",
-    "username": "kenji",
+    "username": "yash",
     "avatar": "https://picsum.photos/seed/kenji-avatar/100/100",
     "image": "https://picsum.photos/seed/kenji-story/720/1280"
   },
   {
     "id": "3",
-    "username": "luna",
+    "username": "vinay",
     "avatar": "https://picsum.photos/seed/luna-avatar/100/100",
     "image": "https://picsum.photos/seed/luna-story/720/1280"
   },
   {
     "id": "4",
-    "username": "mateo",
+    "username": "tanay",
     "avatar": "https://picsum.photos/seed/mateo-avatar/100/100",
     "image": "https://picsum.photos/seed/mateo-story/720/1280"
   },
   {
     "id": "5",
-    "username": "priya",
+    "username": "prasanna",
     "avatar": "https://picsum.photos/seed/priya-avatar/100/100",
     "image": "https://picsum.photos/seed/priya-story/720/1280"
   },
   {
     "id": "6",
-    "username": "sofia",
+    "username": "sumeet",
     "avatar": "https://picsum.photos/seed/sofia-avatar/100/100",
     "image": "https://picsum.photos/seed/sofia-story/720/1280"
   },
   {
     "id": "7",
-    "username": "theo",
+    "username": "mohit",
     "avatar": "https://picsum.photos/seed/theo-avatar/100/100",
     "image": "https://picsum.photos/seed/theo-story/720/1280"
   },
   {
     "id": "8",
-    "username": "yuki",
+    "username": "gaurav",
     "avatar": "https://picsum.photos/seed/yuki-avatar/100/100",
     "image": "https://picsum.photos/seed/yuki-story/720/1280"
   }
